@@ -1,0 +1,54 @@
+<div class="flex flex-col p-4">
+    <div class="text-lg font-semibold">Tanie Teleporty</div>
+
+    <div class="flex pt-4">
+        <div class="flex flex-col">
+            <span>Start</span>
+            <mat-form-field>
+                <mat-select [(ngModel)]="selectedFrom" name="from" (selectionChange)="onSelect()">
+                    <mat-label>Choose an option</mat-label>
+                    @for (town of townOptions; track town) {
+                        <mat-option [value]="town">{{town}}</mat-option>
+                    }
+                </mat-select>
+              </mat-form-field>
+        </div>
+
+        <div class="flex flex-col pl-4">
+            <span>Do</span>
+            <mat-form-field>
+                <mat-select [(ngModel)]="selectedTo" name="to" (selectionChange)="onSelect()">
+                    <mat-label>Choose an option</mat-label>
+                    @for (town of townOptions; track town) {
+                        <mat-option [value]="town">{{town}}</mat-option>
+                    }
+                </mat-select>
+              </mat-form-field>
+        </div>
+
+    </div>
+
+    <div class="flex flex-col gap-10 pt-4">
+        <div *ngIf="lowestPriceShortcuts$ | async as pricing">
+            <span class="text-sembold text-lg">Najnizsza cena (z skrótami): {{ pricing.price }}</span>
+
+            <ol class="list-decimal pl-6 pt-4">
+                @for (path of pricing.path; track path) {
+                    <li>{{path.town }}. Cena: {{ path.price }} <span *ngIf="path.shortcutSoeNeeded"> + {{ path.shortcutSoeNeeded }} SOE. Shorcut: {{ path.shortcutDescription }}</span>.</li>
+                }
+            </ol>
+        </div>
+
+        <div *ngIf="lowestPriceStandard$ | async as pricing">
+            <span class="text-sembold text-lg">Najnizsza cena (bez skrótów): {{ pricing.price }}</span>
+
+            <ol class="list-decimal pl-6 pt-4">
+                @for (path of pricing.path; track path) {
+                    <li>{{path.town }}. Cena: {{ path.price }} <span *ngIf="path.shortcutSoeNeeded"> + {{ path.shortcutSoeNeeded }} SOE. Shorcut: {{ path.shortcutDescription }}</span>.</li>
+                }
+            </ol>
+        </div>
+    </div>
+
+</div>
+  
