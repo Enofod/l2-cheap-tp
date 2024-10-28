@@ -25,6 +25,7 @@ import { CommonModule } from '@angular/common';
 
 export type PricingModel = {
   price: number | null;
+  totalShortcutSoeNeeded : number | null;
   path: {
       town: Town;
       price: number;
@@ -55,6 +56,8 @@ export type Graph = {
   styleUrl: './teleports.component.scss'
 })
 export class TeleportsComponent implements OnInit {
+
+  SOE_PRICE = 440
 
   townOptions = [
     "Aden Castle Town",
@@ -123,65 +126,73 @@ export class TeleportsComponent implements OnInit {
   buildGraph(teleports: Teleport[]): Graph {
     const graph: Graph = {};
     for (const { from, to, price, shorcutDescription, shorcutSoeNeeded } of teleports) {
-      if (!graph[from]) graph[from] = [];
-      graph[from].push({ town: to, price, shortcutDescription: shorcutDescription, shortcutSoeNeeded: shorcutSoeNeeded });
+        if (!graph[from]) graph[from] = [];
+        graph[from].push({ town: to, price, shortcutDescription: shorcutDescription, shortcutSoeNeeded: shorcutSoeNeeded });
     }
     return graph;
-  }
+}
 
-  findLowestPriceAndPath(
+findLowestPriceAndPath(
     teleports: Teleport[],
     start: Town,
     end: Town
-  ): { price: number | null; path: { town: Town; price: number; shortcutDescription?: string; shortcutSoeNeeded?: number }[] | null } {
+): {
+    price: number | null;
+    path: { town: Town; price: number; shortcutDescription?: string; shortcutSoeNeeded?: number }[] | null;
+    totalShortcutSoeNeeded: number | null;
+} {
     const graph = this.buildGraph(teleports);
     const prices: { [key: string]: number } = {};
     const visited: { [key: string]: boolean } = {};
     const previous: { [key: string]: { town: Town; price: number; shortcutDescription?: string; shortcutSoeNeeded?: number } | null } = {};
 
     for (const town in graph) {
-      prices[town] = Infinity;
-      previous[town] = null;
+        prices[town] = Infinity;
+        previous[town] = null;
     }
     prices[start] = 0;
 
     const queue: { town: Town, price: number }[] = [{ town: start, price: 0 }];
 
     while (queue.length > 0) {
-      queue.sort((a, b) => a.price - b.price);
-      const { town, price } = queue.shift()!;
+        queue.sort((a, b) => a.price - b.price);
+        const { town, price } = queue.shift()!;
 
-      if (town === end) {
-        const path: { town: Town; price: number; shortcutDescription?: string; shortcutSoeNeeded?: number }[] = [];
-        let at: Town | null = end;
-        while (at !== null) {
-          const prev = previous[at] as { town: Town; price: number; shortcutDescription?: string; shortcutSoeNeeded?: number } | null;
-          path.push({
-            town: at,
-            price: prev ? prev.price : 0,  // Starting point has a price of 0
-            shortcutDescription: prev?.shortcutDescription,
-            shortcutSoeNeeded: prev?.shortcutSoeNeeded
-          });
-          at = prev ? prev.town : null;
+        if (town === end) {
+            const path: { town: Town; price: number; shortcutDescription?: string; shortcutSoeNeeded?: number }[] = [];
+            let totalShortcutSoeNeeded = 0;
+            let at: Town | null = end;
+            while (at !== null) {
+                const prev = previous[at] as { town: Town; price: number; shortcutDescription?: string; shortcutSoeNeeded?: number } | null;
+                path.push({
+                    town: at,
+                    price: prev ? prev.price : 0,  // Starting point has a price of 0
+                    shortcutDescription: prev?.shortcutDescription,
+                    shortcutSoeNeeded: prev?.shortcutSoeNeeded
+                });
+                if (prev?.shortcutSoeNeeded) {
+                    totalShortcutSoeNeeded += prev.shortcutSoeNeeded;
+                }
+                at = prev ? prev.town : null;
+            }
+            path.reverse();
+            return { price, path, totalShortcutSoeNeeded };
         }
-        path.reverse();
-        return { price, path };
-      }
 
-      if (visited[town]) continue;
-      visited[town] = true;
+        if (visited[town]) continue;
+        visited[town] = true;
 
-      for (const { town: neighbor, price: neighborPrice, shortcutDescription, shortcutSoeNeeded } of graph[town] || []) {
-        const newPrice = price + neighborPrice;
-        if (newPrice < prices[neighbor]) {
-          prices[neighbor] = newPrice;
-          previous[neighbor] = { town, price: neighborPrice, shortcutDescription, shortcutSoeNeeded };
-          queue.push({ town: neighbor, price: newPrice });
+        for (const { town: neighbor, price: neighborPrice, shortcutDescription, shortcutSoeNeeded } of graph[town] || []) {
+            const newPrice = price + neighborPrice;
+            if (newPrice < prices[neighbor]) {
+                prices[neighbor] = newPrice;
+                previous[neighbor] = { town, price: neighborPrice, shortcutDescription, shortcutSoeNeeded };
+                queue.push({ town: neighbor, price: newPrice });
+            }
         }
-      }
     }
 
-    return { price: null, path: null };
-  }
+    return { price: null, path: null, totalShortcutSoeNeeded: null };
+}
 
 }

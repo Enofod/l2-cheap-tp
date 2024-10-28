@@ -28,26 +28,28 @@
 
     </div>
 
-    <div class="flex flex-col gap-10 pt-4">
+    <div class="flex flex-col pt-4">
         <div *ngIf="lowestPriceShortcuts$ | async as pricing">
-            <span class="text-sembold text-lg">Najnizsza cena (z skrótami): {{ pricing.price }}</span>
+            <span class="text-sembold text-lg">Najnizsza cena (z skrótami): {{ pricing.price }} + ({{ pricing.totalShortcutSoeNeeded }} SoE * {{ SOE_PRICE }}) = {{ (pricing?.price ?? 0) + ((pricing?.totalShortcutSoeNeeded ?? 0) * SOE_PRICE)  }} </span>
 
             <ol class="list-decimal pl-6 pt-4">
                 @for (path of pricing.path; track path) {
-                    <li>{{path.town }}. Cena: {{ path.price }} <span *ngIf="path.shortcutSoeNeeded"> + {{ path.shortcutSoeNeeded }} SOE. Shorcut: {{ path.shortcutDescription }}</span>.</li>
+                    <li>{{path.town }}. Cena: {{ path.price }} <span *ngIf="path.shortcutSoeNeeded"> + {{ path.shortcutSoeNeeded }} SoE. Skrót: {{ path.shortcutDescription }}</span></li>
                 }
             </ol>
+
+            <div class="pt-10" *ngIf="lowestPriceStandard$ | async as pricingStandard">
+                <div class="text-sembold text-lg">Najnizsza cena (bez skrótów): {{ pricingStandard.price }} - więcej o {{ (pricingStandard?.price ?? 0) - ((pricing?.price ?? 0) + ((pricing?.totalShortcutSoeNeeded ?? 0) * SOE_PRICE)) }}</div>
+    
+                <ol class="list-decimal pl-6 pt-4">
+                    @for (path of pricingStandard.path; track path) {
+                        <li>{{path.town }}. Cena: {{ path.price }} <span *ngIf="path.shortcutSoeNeeded"> + {{ path.shortcutSoeNeeded }} SoE. Skrót: {{ path.shortcutDescription }}</span></li>
+                    }
+                </ol>
+            </div>
         </div>
 
-        <div *ngIf="lowestPriceStandard$ | async as pricing">
-            <span class="text-sembold text-lg">Najnizsza cena (bez skrótów): {{ pricing.price }}</span>
 
-            <ol class="list-decimal pl-6 pt-4">
-                @for (path of pricing.path; track path) {
-                    <li>{{path.town }}. Cena: {{ path.price }} <span *ngIf="path.shortcutSoeNeeded"> + {{ path.shortcutSoeNeeded }} SOE. Shorcut: {{ path.shortcutDescription }}</span>.</li>
-                }
-            </ol>
-        </div>
     </div>
 
 </div>
