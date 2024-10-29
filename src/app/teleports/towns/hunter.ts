@@ -42,7 +42,7 @@ export const HUNTER: TownTeleports = {
             price: 0,
             shorcutDescription: "run toward Plains of Lizardman ==>>  SOE",
             shorcutSoeNeeded: 1,
-            shorcutLink: "https://i.postimg.cc/6qMkwj03/image.png"
+            shorcutLink: "https://i.postimg.cc/ryHgX2G4/image.png"
         }
     ]
 }
