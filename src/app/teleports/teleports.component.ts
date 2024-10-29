@@ -31,10 +31,11 @@ export type PricingModel = {
       price: number;
       shortcutDescription?: string;
       shortcutSoeNeeded?: number;
+      shorcutLink?: string;
   }[] | null;
 }
 
-export type Path = { town: Town; price: number; shortcutDescription?: string; shortcutSoeNeeded?: number }
+export type Path = { town: Town; price: number; shortcutDescription?: string; shortcutSoeNeeded?: number, shorcutLink?: string }
 
 export type Graph = {
   [key: string]: Path[];
@@ -115,6 +116,7 @@ export class TeleportsComponent implements OnInit {
     console.log('trigger')
     const lowestPriceShortcuts = this.findLowestPriceAndPath(this.teleports, this.selectedFrom as Town, this.selectedTo as Town);
     this.lowestPriceShortcuts$.next(lowestPriceShortcuts)
+    console.log(lowestPriceShortcuts)
 
     console.log('lowest price standard Tp')
     const lowestPriceStandard = this.findLowestPriceAndPath(this.teleports.filter(teleport => teleport.shorcutDescription === undefined), this.selectedFrom as Town, this.selectedTo as Town);
@@ -125,9 +127,9 @@ export class TeleportsComponent implements OnInit {
 
   buildGraph(teleports: Teleport[]): Graph {
     const graph: Graph = {};
-    for (const { from, to, price, shorcutDescription, shorcutSoeNeeded } of teleports) {
+    for (const { from, to, price, shorcutDescription, shorcutSoeNeeded, shorcutLink } of teleports) {
         if (!graph[from]) graph[from] = [];
-        graph[from].push({ town: to, price, shortcutDescription: shorcutDescription, shortcutSoeNeeded: shorcutSoeNeeded });
+        graph[from].push({ town: to, price, shortcutDescription: shorcutDescription, shortcutSoeNeeded: shorcutSoeNeeded, shorcutLink: shorcutLink });
     }
     return graph;
 }
@@ -138,13 +140,13 @@ findLowestPriceAndPath(
     end: Town
 ): {
     price: number | null;
-    path: { town: Town; price: number; shortcutDescription?: string; shortcutSoeNeeded?: number }[] | null;
+    path: { town: Town; price: number; shortcutDescription?: string; shortcutSoeNeeded?: number, shorcutLink?: string }[] | null;
     totalShortcutSoeNeeded: number | null;
 } {
     const graph = this.buildGraph(teleports);
     const prices: { [key: string]: number } = {};
     const visited: { [key: string]: boolean } = {};
-    const previous: { [key: string]: { town: Town; price: number; shortcutDescription?: string; shortcutSoeNeeded?: number } | null } = {};
+    const previous: { [key: string]: { town: Town; price: number; shortcutDescription?: string; shortcutSoeNeeded?: number, shorcutLink?: string } | null } = {};
 
     for (const town in graph) {
         prices[town] = Infinity;
@@ -159,16 +161,17 @@ findLowestPriceAndPath(
         const { town, price } = queue.shift()!;
 
         if (town === end) {
-            const path: { town: Town; price: number; shortcutDescription?: string; shortcutSoeNeeded?: number }[] = [];
+            const path: { town: Town; price: number; shortcutDescription?: string; shortcutSoeNeeded?: number, shorcutLink?: string }[] = [];
             let totalShortcutSoeNeeded = 0;
             let at: Town | null = end;
             while (at !== null) {
-                const prev = previous[at] as { town: Town; price: number; shortcutDescription?: string; shortcutSoeNeeded?: number } | null;
+                const prev = previous[at] as { town: Town; price: number; shortcutDescription?: string; shortcutSoeNeeded?: number, shorcutLink?: string } | null;
                 path.push({
                     town: at,
                     price: prev ? prev.price : 0,  // Starting point has a price of 0
                     shortcutDescription: prev?.shortcutDescription,
-                    shortcutSoeNeeded: prev?.shortcutSoeNeeded
+                    shortcutSoeNeeded: prev?.shortcutSoeNeeded,
+                    shorcutLink: prev?.shorcutLink
                 });
                 if (prev?.shortcutSoeNeeded) {
                     totalShortcutSoeNeeded += prev.shortcutSoeNeeded;
@@ -182,11 +185,11 @@ findLowestPriceAndPath(
         if (visited[town]) continue;
         visited[town] = true;
 
-        for (const { town: neighbor, price: neighborPrice, shortcutDescription, shortcutSoeNeeded } of graph[town] || []) {
+        for (const { town: neighbor, price: neighborPrice, shortcutDescription, shortcutSoeNeeded, shorcutLink } of graph[town] || []) {
             const newPrice = price + neighborPrice;
             if (newPrice < prices[neighbor]) {
                 prices[neighbor] = newPrice;
-                previous[neighbor] = { town, price: neighborPrice, shortcutDescription, shortcutSoeNeeded };
+                previous[neighbor] = { town, price: neighborPrice, shortcutDescription, shortcutSoeNeeded, shorcutLink };
                 queue.push({ town: neighbor, price: newPrice });
             }
         }

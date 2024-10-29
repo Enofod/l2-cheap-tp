@@ -8,10 +8,10 @@
                 <mat-select [(ngModel)]="selectedFrom" name="from" (selectionChange)="onSelect()">
                     <mat-label>Choose an option</mat-label>
                     @for (town of townOptions; track town) {
-                        <mat-option [value]="town">{{town}}</mat-option>
+                    <mat-option [value]="town">{{town}}</mat-option>
                     }
                 </mat-select>
-              </mat-form-field>
+            </mat-form-field>
         </div>
 
         <div class="flex flex-col pl-4">
@@ -20,37 +20,48 @@
                 <mat-select [(ngModel)]="selectedTo" name="to" (selectionChange)="onSelect()">
                     <mat-label>Choose an option</mat-label>
                     @for (town of townOptions; track town) {
-                        <mat-option [value]="town">{{town}}</mat-option>
+                    <mat-option [value]="town">{{town}}</mat-option>
                     }
                 </mat-select>
-              </mat-form-field>
+            </mat-form-field>
         </div>
 
     </div>
 
     <div class="flex flex-col pt-4">
         <div *ngIf="lowestPriceShortcuts$ | async as pricing">
-            <span class="text-sembold text-lg">Najnizsza cena (z skrótami): {{ pricing.price }} + ({{ pricing.totalShortcutSoeNeeded }} SoE * {{ SOE_PRICE }}) = {{ (pricing?.price ?? 0) + ((pricing?.totalShortcutSoeNeeded ?? 0) * SOE_PRICE)  }} </span>
+            <div class="pt-4" *ngIf="lowestPriceStandard$ | async as pricingStandard">
+                <div class="text-sembold text-lg">Najnizsza cena (bez skrótów): {{ pricingStandard.price }} - więcej o
+                    {{ (pricingStandard?.price ?? 0) - ((pricing?.price ?? 0) + ((pricing?.totalShortcutSoeNeeded ?? 0)
+                    * SOE_PRICE)) }}</div>
 
-            <ol class="list-decimal pl-6 pt-4">
-                @for (path of pricing.path; track path) {
-                    <li>{{path.town }}. Cena: {{ path.price }} <span *ngIf="path.shortcutSoeNeeded"> + {{ path.shortcutSoeNeeded }} SoE. Skrót: {{ path.shortcutDescription }}</span></li>
-                }
-            </ol>
-
-            <div class="pt-10" *ngIf="lowestPriceStandard$ | async as pricingStandard">
-                <div class="text-sembold text-lg">Najnizsza cena (bez skrótów): {{ pricingStandard.price }} - więcej o {{ (pricingStandard?.price ?? 0) - ((pricing?.price ?? 0) + ((pricing?.totalShortcutSoeNeeded ?? 0) * SOE_PRICE)) }}</div>
-    
                 <ol class="list-decimal pl-6 pt-4">
                     @for (path of pricingStandard.path; track path) {
-                        <li>{{path.town }}. Cena: {{ path.price }} <span *ngIf="path.shortcutSoeNeeded"> + {{ path.shortcutSoeNeeded }} SoE. Skrót: {{ path.shortcutDescription }}</span></li>
+                    <li>{{path.town }}. Cena: {{ path.price }} <span *ngIf="path.shortcutSoeNeeded"> + {{
+                            path.shortcutSoeNeeded }} SoE. Skrót: {{ path.shortcutDescription }}</span></li>
                     }
                 </ol>
             </div>
-        </div>
 
+            <div class="text-sembold text-lg pt-10">Najnizsza cena (z skrótami): {{ pricing.price }} + ({{
+                pricing.totalShortcutSoeNeeded }} SoE * {{ SOE_PRICE }}) = {{ (pricing?.price ?? 0) +
+                ((pricing?.totalShortcutSoeNeeded ?? 0) * SOE_PRICE) }} </div>
+
+            <ol class="list-decimal pl-6 pt-4">
+                @for (path of pricing.path; track path) {
+                <li>
+                    {{path.town }}. Cena: {{ path.price }} <span *ngIf="path.shortcutSoeNeeded"> + {{
+                        path.shortcutSoeNeeded }} SoE. Skrót: {{ path.shortcutDescription }}</span>
+                    <div *ngIf="path.shorcutLink">
+                        <img [src]='path.shorcutLink' />
+                    </div>
+                </li>
+                }
+            </ol>
+
+            
+        </div>
 
     </div>
 
 </div>
-  

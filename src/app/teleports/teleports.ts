@@ -8,6 +8,7 @@ export type Teleport = {
     price: number,
     shorcutDescription?: string
     shorcutSoeNeeded?: number
+    shorcutLink?: string
 }
 
 export type Town =

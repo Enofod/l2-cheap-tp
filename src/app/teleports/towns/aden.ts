@@ -29,7 +29,8 @@ export const ADEN: TownTeleports = {
             to: 'Hunter Village',
             price: 2400,
             shorcutDescription: "Anghel Waterfall ==>> SOE",
-            shorcutSoeNeeded: 1
+            shorcutSoeNeeded: 1,
+            shorcutLink: 'https://i.postimg.cc/g2Hv0ChN/image.png'
         },
         {
             from: 'Aden Castle Town',
