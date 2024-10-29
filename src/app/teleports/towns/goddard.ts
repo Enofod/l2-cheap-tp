@@ -20,7 +20,8 @@ export const GODDARD: TownTeleports = {
             to: 'Aden Castle Town',
             price: 8500,
             shorcutDescription: 'Disciples ==>> SOE ==>> Aden',
-            shorcutSoeNeeded: 1
+            shorcutSoeNeeded: 1,
+            shorcutLink: "https://i.postimg.cc/NM6YhkS9/image.png"
         }
     ]
 }

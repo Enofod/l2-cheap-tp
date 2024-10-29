@@ -30,21 +30,24 @@ export const GIRAN: TownTeleports = {
             to: 'Dion Castle Town',
             price: 0,
             shorcutDescription: "run towards Execution Grounds ==>> SOE",
-            shorcutSoeNeeded: 1
+            shorcutSoeNeeded: 1,
+            shorcutLink: "https://i.postimg.cc/6596XF99/image.png"
         },
         {
             from: 'Giran Castle Town',
             to: 'Heine',
             price: 0,
             shorcutDescription: "run towards Fields of Silence ==>> SOE",
-            shorcutSoeNeeded: 1
+            shorcutSoeNeeded: 1,
+            shorcutLink: "https://i.postimg.cc/RVXSVGFw/image.png"
         },
         {
             from: 'Giran Castle Town',
             to: 'Town of Oren',
             price: 5300,
             shorcutDescription: "Hardins ==>> run ==>> SOE ",
-            shorcutSoeNeeded: 1
+            shorcutSoeNeeded: 1,
+            shorcutLink: "https://i.postimg.cc/13dyDtDt/image.png"
         }
     ]
 }

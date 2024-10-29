@@ -24,21 +24,24 @@ export const OREN: TownTeleports = {
             to: 'Giran Castle Town',
             price: 2700,
             shorcutDescription: 'Plains of Lizardmen ==>> run ==>> SOE ',
-            shorcutSoeNeeded: 1
+            shorcutSoeNeeded: 1,
+            shorcutLink: "https://i.postimg.cc/CL63Q25r/image.png"
         },
         {
             from: 'Town of Oren',
             to: 'Dion Castle Town',
             price: 2700,
             shorcutDescription: 'Plains of Lizardmen ==>> run ==>> SOE',
-            shorcutSoeNeeded: 1
+            shorcutSoeNeeded: 1,
+            shorcutLink: "https://i.postimg.cc/6QCFT50F/image.png"
         },
         {
             from: 'Town of Oren',
             to: 'Aden Castle Town',
             price: 4400,
             shorcutDescription: 'Ivory Tower ==>> run ==>> SOE',
-            shorcutSoeNeeded: 1
+            shorcutSoeNeeded: 1,
+            shorcutLink: "https://i.postimg.cc/sxHNbBjG/image.png"
         }
     ]
 }

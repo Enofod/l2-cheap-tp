@@ -37,7 +37,8 @@ export const ADEN: TownTeleports = {
             to: 'Goddard Castle Town',
             price: 1400,
             shorcutDescription: "Blazing Swamp ==>> run ==>> SOE",
-            shorcutSoeNeeded: 1
+            shorcutSoeNeeded: 1,
+            shorcutLink: 'https://i.postimg.cc/N0L5wSky/image.png'
         }
     ]
 }

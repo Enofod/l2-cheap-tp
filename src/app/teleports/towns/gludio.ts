@@ -39,7 +39,8 @@ export const GLUDIO: TownTeleports = {
             to: 'Dion Castle Town',
             price: 0,
             shorcutDescription: "run to Cruma Marshland (cross river) ==>> SOE",
-            shorcutSoeNeeded: 1
+            shorcutSoeNeeded: 1,
+            shorcutLink: "https://i.postimg.cc/NMqYPzJv/image.png"
         }
     ]
 }

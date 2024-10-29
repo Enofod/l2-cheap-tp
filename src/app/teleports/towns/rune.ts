@@ -20,7 +20,8 @@ export const RUNE: TownTeleports = {
             to: 'Town of Oren',
             price: 710,
             shorcutDescription: 'Swamp of Screams ==>> run,swim ==>> SOE',
-            shorcutSoeNeeded: 1
+            shorcutSoeNeeded: 1,
+            shorcutLink: "https://i.postimg.cc/zXMQjR29/image.png"
         }
     ]
 }

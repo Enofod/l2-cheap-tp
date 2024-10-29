@@ -20,14 +20,16 @@ export const ELF: TownTeleports = {
             to: 'Gludio Castle Town',
             price: 740,
             shorcutDescription: ' Neutral Zone ==>> SOE',
-            shorcutSoeNeeded: 1
+            shorcutSoeNeeded: 1,
+            shorcutLink: 'https://i.postimg.cc/gjKYhHKF/image.png'
         },
         {
             from: 'Elven Village',
             to: 'Dark Elven Village',
             price: 740,
             shorcutDescription: ' Neutral Zone ==>> run Dark Elven Territory ==>> SOE',
-            shorcutSoeNeeded: 1
+            shorcutSoeNeeded: 1,
+            shorcutLink: 'https://i.postimg.cc/bY0Y4qfC/image.png'
         }
     ]
 }

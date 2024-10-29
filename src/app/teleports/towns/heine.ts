@@ -20,7 +20,8 @@ export const HEINE: TownTeleports = {
             to: 'Giran Castle Town',
             price: 2400,
             shorcutDescription: "Fields of Whispers => run,swim ==>> SOE ",
-            shorcutSoeNeeded: 1
+            shorcutSoeNeeded: 1,
+            shorcutLink: "https://i.postimg.cc/ncRxtzRk/image.png"
         }
     ]
 }

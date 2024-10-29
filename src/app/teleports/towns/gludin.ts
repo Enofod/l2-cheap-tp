@@ -40,14 +40,16 @@ export const GLUDIN: TownTeleports = {
             to: 'Talking Island Village',
             price: 18000,
             shorcutDescription: "swim ==>> SOE",
-            shorcutSoeNeeded: 1
+            shorcutSoeNeeded: 1,
+            shorcutLink: 'https://i.postimg.cc/gchLj9F8/image.png'
         },
         {
             from: 'Gludin Village',
             to: 'Gludio Castle Town',
             price: 900,
             shorcutDescription: "Abandoned Camp ==>> run,cross the mountain ==>> SOE",
-            shorcutSoeNeeded: 1
+            shorcutSoeNeeded: 1,
+            shorcutLink: 'https://i.postimg.cc/nzjjqgs8/image.png',
         }
     ]
 }
