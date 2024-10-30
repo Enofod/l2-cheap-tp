@@ -5,7 +5,7 @@ export const ORC: TownTeleports = {
         {
             from: 'Orc Village',
             to: 'Gludin Village',
-            price: 18000
+            price: 3000
         }
     ]
 }

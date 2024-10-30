@@ -34,7 +34,7 @@ export const DION: TownTeleports = {
             price: 1900,
             shorcutDescription: "Partisan Hideway ==>> run ==>> SOE ",
             shorcutSoeNeeded: 1,
-            shorcutLink: 'https://i.postimg.cc/fLmWzNtb/image.png'
+            shorcutLink: 'https://i.postimg.cc/26yBgWbD/image.png'
         },
         {
             from: 'Dion Castle Town',
@@ -42,7 +42,7 @@ export const DION: TownTeleports = {
             price: 1900,
             shorcutDescription: "Partisan Hideway ==>> run ==>> SOE ",
             shorcutSoeNeeded: 1,
-            shorcutLink: 'https://i.postimg.cc/0jvkrBD0/image.png'
+            shorcutLink: 'https://i.postimg.cc/59HsCYPT/image.png'
         }
     ]
 }

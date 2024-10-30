@@ -38,7 +38,7 @@ export const GLUDIN: TownTeleports = {
         {
             from: 'Gludin Village',
             to: 'Talking Island Village',
-            price: 18000,
+            price: 0,
             shorcutDescription: "swim ==>> SOE",
             shorcutSoeNeeded: 1,
             shorcutLink: 'https://i.postimg.cc/gchLj9F8/image.png'
