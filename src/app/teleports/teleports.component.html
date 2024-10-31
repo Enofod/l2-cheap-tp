@@ -1,8 +1,6 @@
 <div class="flex flex-col p-4">
-    <div class="text-lg font-semibold py-1">Cheap Teleports - Reborn C4</div>
-    <p>Calculate the cheapest teleport from one town to other town. Two option will be displayed - with and without shorcuts.</p>
-
-    <div class="text-sm py-3 pl-2">WariatP2W is streaming Reborn Signature (C4). Stream starts around 20:00 (UTC+1). <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="https://kick.com/wariatp2w">Stream (PL + Eng)</a>, or visit <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="https://discord.gg/hckfUWy33n">Discord (to get some tips)</a></div>
+    <div class="text-lg font-semibold">Cheap Teleports - Reborn C4</div>
+    <p class="pt-1">Calculate the cheapest teleport from one town to other town. Two option will be displayed - with and without shorcuts.</p>
 
     <div class="flex pt-4">
         <div class="flex flex-col">
@@ -31,14 +29,14 @@
 
     </div>
 
-    <div class="flex flex-col pt-4">
+    <div class="flex flex-col">
         <div *ngIf="lowestPriceShortcuts$ | async as pricing">
             <div class="pt-4" *ngIf="lowestPriceStandard$ | async as pricingStandard">
-                <div class="text-sembold text-lg">Cheapest price (no shortcuts): {{ pricingStandard.price }} - more expensive by 
+                <div class="text-sembold text-lg text-rose-800">Cheapest price (no shortcuts): {{ pricingStandard.price }} - more expensive by 
                     {{ (pricingStandard?.price ?? 0) - ((pricing?.price ?? 0) + ((pricing?.totalShortcutSoeNeeded ?? 0)
                     * SOE_PRICE)) }}</div>
 
-                <ol class="list-decimal pl-6 pt-4">
+                <ol class="list-decimal pl-6 pt-2">
                     @for (path of pricingStandard.path; track path) {
                     <li>{{path.town }}. Price: {{ path.price }} <span *ngIf="path.shortcutSoeNeeded"> + {{
                             path.shortcutSoeNeeded }} SoE. Shorcut: {{ path.shortcutDescription }}</span></li>
@@ -46,11 +44,11 @@
                 </ol>
             </div>
 
-            <div class="text-sembold text-lg pt-10">Cheapest price (with shorcuts): {{ pricing.price }} + ({{
+            <div class="text-sembold text-lg pt-6 text-emerald-800">Cheapest price (with shortcuts): {{ pricing.price }} + ({{
                 pricing.totalShortcutSoeNeeded }} SoE * {{ SOE_PRICE }}) = {{ (pricing?.price ?? 0) +
                 ((pricing?.totalShortcutSoeNeeded ?? 0) * SOE_PRICE) }} </div>
 
-            <ol class="list-decimal pl-6 pt-4">
+            <ol class="list-decimal pl-6 pt-2">
                 @for (path of pricing.path; track path) {
                 <li>
                     {{path.town }}. Price: {{ path.price }} <span *ngIf="path.shortcutSoeNeeded"> + {{
