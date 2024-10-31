@@ -22,6 +22,15 @@ export const RUNE: TownTeleports = {
             shorcutDescription: 'Swamp of Screams ==>> run,swim ==>> SOE',
             shorcutSoeNeeded: 1,
             shorcutLink: "https://i.postimg.cc/zXMQjR29/image.png"
+        },
+        // shorcut
+        {
+            from: 'Rune Castle Town',
+            to: 'Goddard Castle Town',
+            price: 710,
+            shorcutDescription: 'Swamp of Screams ==>> run ==>> SOE',
+            shorcutSoeNeeded: 1,
+            shorcutLink: "https://i.postimg.cc/tCj4B3y8/image.png"
         }
     ]
 }

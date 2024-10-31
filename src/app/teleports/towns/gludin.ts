@@ -16,7 +16,7 @@ export const GLUDIN: TownTeleports = {
         {
             from: 'Gludin Village',
             to: 'Dark Elven Village',
-            price: 6400
+            price: 3700
         },
         {
             from: 'Gludin Village',

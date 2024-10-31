@@ -108,6 +108,9 @@ export class TeleportsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.teleports.forEach(teleport => {
+      teleport.price = teleport.price + (this.SOE_PRICE * (teleport.shorcutSoeNeeded ?? 0))
+    })
   }
 
   onSelect() {
