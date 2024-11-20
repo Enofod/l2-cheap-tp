@@ -50,6 +50,14 @@ export const GLUDIN: TownTeleports = {
             shorcutDescription: "Abandoned Camp ==>> run,cross the mountain ==>> SOE",
             shorcutSoeNeeded: 1,
             shorcutLink: 'https://i.postimg.cc/nzjjqgs8/image.png',
+        },
+        {
+            from: 'Gludin Village',
+            to: 'Dark Elven Village',
+            price: 1000,
+            shorcutDescription: "Fellmere Harvest Grounds ==>> run ==>> SOE",
+            shorcutSoeNeeded: 1,
+            shorcutLink: 'https://i.postimg.cc/6Qh0SVLW/image.png',
         }
     ]
 }

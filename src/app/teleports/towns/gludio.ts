@@ -41,6 +41,14 @@ export const GLUDIO: TownTeleports = {
             shorcutDescription: "run to Cruma Marshland (cross river) ==>> SOE",
             shorcutSoeNeeded: 1,
             shorcutLink: "https://i.postimg.cc/NMqYPzJv/image.png"
+        },
+        {
+            from: 'Gludio Castle Town',
+            to: 'Gludin Village',
+            price: 1000,
+            shorcutDescription: "Windawood Manor => run => SOE",
+            shorcutSoeNeeded: 1,
+            shorcutLink: "https://i.postimg.cc/vTLPgcHZ/image.png"
         }
     ]
 }
