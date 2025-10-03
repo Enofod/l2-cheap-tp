@@ -1,5 +1,5 @@
 <div class="flex flex-col p-4">
-    <div class="text-lg font-semibold">Cheap Teleports - Reborn C4</div>
+    <div class="text-lg font-semibold">Cheap Teleports - Reborn C5</div>
     <p class="pt-1">Calculate the cheapest teleport from one town to other town. Two option will be displayed - with and without shorcuts.</p>
     <p class="text-sm italic text-gray pt-2">Type <span class="font-semibold not-italic">/loc</span> in L2 to check your location. Preferably create a macro with /loc, so you'll know if you can already use Scroll of Escape.</p>
 
@@ -32,10 +32,19 @@
 
     <div class="flex flex-col">
         <div *ngIf="lowestPriceShortcuts$ | async as pricing">
+
             <div class="pt-4" *ngIf="lowestPriceStandard$ | async as pricingStandard">
-                <div class="text-sembold text-lg text-rose-800">
-                    Cheapest price (no shortcuts): {{ pricingStandard.price }} - more expensive by
-                    {{ (pricingStandard?.price ?? 0) - ((pricing?.price ?? 0)) }}</div>
+                <div>
+                    <span class="text-rose-800 text-lg">{{ pricingStandard?.price ?? 0 }} adena (cheapest tp)</span>
+                    vs 
+                    <span class="text-emerald-800 text-lg">{{ ((pricing?.price ?? 0)) }} adena (cheapest tp with soe tricks)</span>
+
+                    <div class="pt-2 text-lg">Difference: {{ (pricingStandard?.price ?? 0) - ((pricing?.price ?? 0)) }} adena</div>
+                </div>
+                 
+
+                <div class="text-sembold text-lg text-rose-800 pt-4 ">
+                    Cheapest tp (no soe tricks): {{ pricingStandard.price }}</div>
 
                 <ol class="list-decimal pl-6 pt-2">
                     @for (path of pricingStandard.path; track path) {
@@ -46,7 +55,7 @@
                 </ol>
             </div>
 
-            <div class="text-sembold text-lg pt-6 text-emerald-800">Cheapest price (with shortcuts):
+            <div class="text-sembold text-lg pt-6 text-emerald-800">Cheapest tp (with soe tricks):
                 {{ (pricing?.price ?? 0) - ((pricing?.totalShortcutSoeNeeded ?? 0) * SOE_PRICE) }} + ({{
                 pricing.totalShortcutSoeNeeded }} SoE * {{ SOE_PRICE }}) = {{ (pricing?.price ?? 0) }} </div>
 

@@ -5,18 +5,43 @@ export const DION: TownTeleports = {
     teleports: [
         {
             from: 'Dion Castle Town',
-            to: 'Gludio Castle Town',
-            price: 4100
-        },
-        {
-            from: 'Dion Castle Town',
             to: 'Giran Castle Town',
-            price: 8100
+            price: 6800
         },
         {
             from: 'Dion Castle Town',
             to: 'Heine',
-            price: 9800
+            price: 12000
+        },
+        {
+            from: 'Dion Castle Town',
+            to: 'Gludin Village',
+            price: 3400
+        },
+        {
+            from: 'Dion Castle Town',
+            to: 'Goddard Castle Town',
+            price: 71000
+        },
+        {
+            from: 'Dion Castle Town',
+            to: 'Rune Castle Town',
+            price: 57000
+        },
+        {
+            from: 'Dion Castle Town',
+            to: 'Town of Schuttgart',
+            price: 88000
+        },
+        {
+            from: 'Dion Castle Town',
+            to: 'Aden Castle Town',
+            price: 52000
+        },
+        {
+            from: 'Dion Castle Town',
+            to: 'Town of Oren',
+            price: 33000
         },
 
         // shortcut
@@ -31,18 +56,18 @@ export const DION: TownTeleports = {
         {
             from: 'Dion Castle Town',
             to: 'Giran Castle Town',
-            price: 1900,
-            shorcutDescription: "Partisan Hideway ==>> run ==>> SOE ",
+            price: 3900,
+            shorcutDescription: "Tanor Canyon ==>> SOE ",
             shorcutSoeNeeded: 1,
-            shorcutLink: 'https://i.postimg.cc/26yBgWbD/image.png'
+            shorcutLink: 'https://i.postimg.cc/HntrBcfm/image.png'
         },
         {
             from: 'Dion Castle Town',
             to: 'Town of Oren',
-            price: 1900,
-            shorcutDescription: "Partisan Hideway ==>> run ==>> SOE ",
+            price: 1700,
+            shorcutDescription: "Fortress of Resistance ==>> run ==>> SOE ",
             shorcutSoeNeeded: 1,
-            shorcutLink: 'https://i.postimg.cc/59HsCYPT/image.png'
+            shorcutLink: 'https://i.postimg.cc/nLTqcW3d/image.png'
         }
     ]
 }

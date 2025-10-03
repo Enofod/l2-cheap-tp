@@ -5,33 +5,33 @@ export const GLUDIN: TownTeleports = {
     teleports: [
         {
             from: 'Gludin Village',
+            to: 'Gludio Castle Town',
+            price: 7300
+        },
+        {
+            from: 'Gludin Village',
             to: 'Talking Island Village',
-            price: 18000
+            price: 9400
         },
         {
             from: 'Gludin Village',
             to: 'Elven Village',
-            price: 6400
+            price: 16000
         },
         {
             from: 'Gludin Village',
             to: 'Dark Elven Village',
-            price: 3700
-        },
-        {
-            from: 'Gludin Village',
-            to: 'Gludio Castle Town',
-            price: 2900
-        },
-        {
-            from: 'Gludin Village',
-            to: 'Orc Village',
-            price: 6000
+            price: 16000
         },
         {
             from: 'Gludin Village',
             to: 'Dwarven Village',
-            price: 6000
+            price: 38000
+        },
+        {
+            from: 'Gludin Village',
+            to: 'Orc Village',
+            price: 26000
         },
 
         // shortcut
@@ -46,7 +46,7 @@ export const GLUDIN: TownTeleports = {
         {
             from: 'Gludin Village',
             to: 'Gludio Castle Town',
-            price: 900,
+            price: 1200,
             shorcutDescription: "Abandoned Camp ==>> run,cross the mountain ==>> SOE",
             shorcutSoeNeeded: 1,
             shorcutLink: 'https://i.postimg.cc/nzjjqgs8/image.png',
@@ -54,7 +54,7 @@ export const GLUDIN: TownTeleports = {
         {
             from: 'Gludin Village',
             to: 'Dark Elven Village',
-            price: 1000,
+            price: 1400,
             shorcutDescription: "Fellmere Harvest Grounds ==>> run ==>> SOE",
             shorcutSoeNeeded: 1,
             shorcutLink: 'https://i.postimg.cc/6Qh0SVLW/image.png',

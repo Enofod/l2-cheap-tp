@@ -7,6 +7,26 @@ export const TALKING_ISLAND: TownTeleports = {
             to: 'Gludin Village',
             price: 18000
         },
+        {
+            from: 'Talking Island Village',
+            to: 'Dark Elven Village',
+            price: 24000
+        },
+        {
+            from: 'Talking Island Village',
+            to: 'Dwarven Village',
+            price: 46000
+        },
+        {
+            from: 'Talking Island Village',
+            to: 'Elven Village',
+            price: 23000
+        },
+        {
+            from: 'Talking Island Village',
+            to: 'Orc Village',
+            price: 35000
+        },
         // shortcut
         {
             from: 'Talking Island Village',

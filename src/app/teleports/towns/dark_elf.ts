@@ -5,20 +5,30 @@ export const DARK_ELF: TownTeleports = {
     teleports: [
         {
             from: 'Dark Elven Village',
-            to: 'Gludin Village',
-            price: 6400
+            to: 'Gludio Castle Town',
+            price: 10000
         },
         {
             from: 'Dark Elven Village',
-            to: 'Gludio Castle Town',
-            price: 4300
+            to: 'Dwarven Village',
+            price: 22000
+        },
+        {
+            from: 'Dark Elven Village',
+            to: 'Talking Island Village',
+            price: 24000
+        },
+        {
+            from: 'Dark Elven Village',
+            to: 'Orc Village',
+            price: 13000
         },
 
         // Shortcuts
         {
             from: 'Dark Elven Village',
             to: 'Gludio Castle Town',
-            price: 780,
+            price: 1700,
             shorcutDescription: 'Neutral Zone => SOE',
             shorcutSoeNeeded: 1,
             shorcutLink: 'https://i.postimg.cc/762h5zcw/image.png'
@@ -26,7 +36,7 @@ export const DARK_ELF: TownTeleports = {
         {
             from: 'Dark Elven Village',
             to: 'Elven Village',
-            price: 780,
+            price: 1700,
             shorcutDescription: 'Neutral Zone => Run Elven Territory => SOE',
             shorcutSoeNeeded: 1,
             shorcutLink: 'https://i.postimg.cc/vTwBfBF9/image.png'
@@ -34,7 +44,7 @@ export const DARK_ELF: TownTeleports = {
         {
             from: 'Dark Elven Village',
             to: 'Gludin Village',
-            price: 1800,
+            price: 3600,
             shorcutDescription: 'Spider Nest ==>> run to Windy Hill,cross the mountain ==>> SOE',
             shorcutSoeNeeded: 1,
             shorcutLink: 'https://i.postimg.cc/gkdj0nKb/image.png'

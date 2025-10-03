@@ -26,4 +26,6 @@ export type Town =
     "Aden Castle Town" |
     "Heine" |
     "Rune Castle Town" |
-    "Goddard Castle Town"
+    "Goddard Castle Town" |
+    "Town of Schuttgart" |
+    "Hunters Village"

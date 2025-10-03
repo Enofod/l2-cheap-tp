@@ -19,6 +19,7 @@ import { HUNTER } from './towns/hunter';
 import { ORC } from './towns/orc';
 import { OREN } from './towns/oren';
 import { RUNE } from './towns/rune';
+import { SCHUTTGART } from './towns/schuttgart';
 import { TALKING_ISLAND } from './towns/talking_island';
 import { BehaviorSubject } from 'rxjs';
 import { CommonModule } from '@angular/common';
@@ -77,6 +78,7 @@ export class TeleportsComponent implements OnInit {
     "Rune Castle Town",
     "Talking Island Village",
     "Town of Oren",
+    "Town of Schuttgart"
   ]
 
   selectedFrom?: string;
@@ -97,7 +99,8 @@ export class TeleportsComponent implements OnInit {
     ...ORC.teleports,
     ...OREN.teleports,
     ...RUNE.teleports,
-    ...TALKING_ISLAND.teleports
+    ...TALKING_ISLAND.teleports,
+    ...SCHUTTGART.teleports
   ]
 
   lowestPriceShortcuts$ = new BehaviorSubject<PricingModel | undefined>(undefined)

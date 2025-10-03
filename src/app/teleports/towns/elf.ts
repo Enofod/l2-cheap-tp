@@ -5,29 +5,39 @@ export const ELF: TownTeleports = {
     teleports: [
         {
             from: 'Elven Village',
-            to: 'Gludin Village',
-            price: 6400
+            to: 'Gludio Castle Town',
+            price: 9200
         },
         {
             from: 'Elven Village',
-            to: 'Gludio Castle Town',
-            price: 3700
+            to: 'Dwarven Village',
+            price: 23000
+        },
+        {
+            from: 'Elven Village',
+            to: 'Talking Island Village',
+            price: 23000
+        },
+        {
+            from: 'Elven Village',
+            to: 'Orc Village',
+            price: 18000
         },
         
         // shorcut
         {
             from: 'Elven Village',
             to: 'Gludio Castle Town',
-            price: 740,
-            shorcutDescription: ' Neutral Zone ==>> SOE',
+            price: 1700,
+            shorcutDescription: 'Neutral Zone ==>> SOE',
             shorcutSoeNeeded: 1,
             shorcutLink: 'https://i.postimg.cc/gjKYhHKF/image.png'
         },
         {
             from: 'Elven Village',
             to: 'Dark Elven Village',
-            price: 740,
-            shorcutDescription: ' Neutral Zone ==>> run Dark Elven Territory ==>> SOE',
+            price: 1700,
+            shorcutDescription: 'Neutral Zone ==>> run Dark Elven Territory ==>> SOE',
             shorcutSoeNeeded: 1,
             shorcutLink: 'https://i.postimg.cc/bY0Y4qfC/image.png'
         }

@@ -4,33 +4,68 @@ export const GLUDIO: TownTeleports = {
     teleports: [
         {
             from: 'Gludio Castle Town',
-            to: 'Elven Village',
-            price: 3700
+            to: 'Town of Schuttgart',
+            price: 85000
         },
         {
             from: 'Gludio Castle Town',
-            to: 'Dark Elven Village',
-            price: 3700
+            to: 'Heine',
+            price: 47000
         },
         {
             from: 'Gludio Castle Town',
-            to: 'Gludin Village',
-            price: 2900
+            to: 'Aden Castle Town',
+            price: 56000
+        },
+        {
+            from: 'Gludio Castle Town',
+            to: 'Town of Oren',
+            price: 35000
         },
         {
             from: 'Gludio Castle Town',
             to: 'Dion Castle Town',
-            price: 4100
+            price: 3400
         },
         {
             from: 'Gludio Castle Town',
-            to: 'Orc Village',
-            price: 6000
+            to: 'Goddard Castle Town',
+            price: 71000
+        },
+        {
+            from: 'Gludio Castle Town',
+            to: 'Giran Castle Town',
+            price: 29000
+        },
+        {
+            from: 'Gludio Castle Town',
+            to: 'Rune Castle Town',
+            price: 53000
+        },
+        {
+            from: 'Gludio Castle Town',
+            to: 'Gludin Village',
+            price: 7300
+        },
+        {
+            from: 'Gludio Castle Town',
+            to: 'Elven Village',
+            price: 9200
+        },
+        {
+            from: 'Gludio Castle Town',
+            to: 'Dark Elven Village',
+            price: 10000
         },
         {
             from: 'Gludio Castle Town',
             to: 'Dwarven Village',
-            price: 6000
+            price: 32000
+        },
+        {
+            from: 'Gludio Castle Town',
+            to: 'Orc Village',
+            price: 23000
         },
 
         // shortcut
@@ -45,7 +80,7 @@ export const GLUDIO: TownTeleports = {
         {
             from: 'Gludio Castle Town',
             to: 'Gludin Village',
-            price: 1000,
+            price: 1400,
             shorcutDescription: "Windawood Manor => run => SOE",
             shorcutSoeNeeded: 1,
             shorcutLink: "https://i.postimg.cc/vTLPgcHZ/image.png"

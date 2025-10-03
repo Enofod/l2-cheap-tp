@@ -5,13 +5,13 @@ export const HUNTER: TownTeleports = {
     teleports: [
         {
             from: 'Hunter Village',
-            to: 'Giran Castle Town',
-            price: 9400
+            to: 'Aden Castle Town',
+            price: 5900
         },
         {
             from: 'Hunter Village',
             to: 'Town of Oren',
-            price: 4900
+            price: 4100
         },
         {
             from: 'Hunter Village',
@@ -23,7 +23,7 @@ export const HUNTER: TownTeleports = {
         {
             from: 'Hunter Village',
             to: 'Giran Castle Town',
-            price: 4100,
+            price: 3400,
             shorcutDescription: "Hardins ==>> SOE",
             shorcutSoeNeeded: 1,
             shorcutLink: "https://i.postimg.cc/BnRGXzGP/image.png"
@@ -31,7 +31,7 @@ export const HUNTER: TownTeleports = {
         {
             from: 'Hunter Village',
             to: 'Aden Castle Town',
-            price: 3700,
+            price: 3600,
             shorcutDescription: "North EV ==>> run - SOE",
             shorcutSoeNeeded: 1,
             shorcutLink: "https://i.postimg.cc/KzDXpv3t/image.png"
